@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CSS from 'csstype';
 
 type ButtonProps = {
@@ -25,40 +25,45 @@ const redButtonStyle: CSS.Properties = {
   ...baseButtonStyle,
   background: '#ff6392',
   boxShadow: '0 5px #ff0a78',
-  // '&:hover': {
-  //   top: '1px',
-  //   boxShadow: '0 3px #ff0a78',
-  // },
-  // '&:active': {
-  //   top: '5px',
-  //   boxShadow: '0 0 #ff0a78',
-  // },
 };
+
 const blueButtonStyle: CSS.Properties = {
   ...baseButtonStyle,
   background: '#3a86ff',
   boxShadow: '0 5px #4433ff',
-  // ':&hover': {
-  //   top: '1px',
-  //   boxShadow: '0 3px #4433ff',
-  // },
-  // '&:active': {
-  //   top: '5px',
-  //   boxShadow: '0 0 #4433ff',
-  // },
 };
 
-function Button({ children, onClick, color }: ButtonProps) {
-  // const { isHover, setIsHover } = useState(false);
-  // const { isActive, setIsActive } = useState(false);
-  const style = color === 'blue' ? blueButtonStyle : redButtonStyle;
+function Button({
+  children,
+  onClick,
+  color = 'blue',
+}: ButtonProps): JSX.Element {
+  const [isHover, setHoverStyle] = useState(false);
+  const [isActive, setActiveStyle] = useState(false);
+  let style = color === 'blue' ? blueButtonStyle : redButtonStyle;
+  if (isHover) {
+    if (color === 'blue') {
+      style = { ...style, top: '1px', boxShadow: '0 3px #4433ff' };
+    } else {
+      style = { ...style, top: '1px', boxShadow: '0 3px #ff0a78' };
+    }
+  }
+  if (isActive) {
+    style = { ...style };
+    if (color === 'blue') {
+      style = { ...style, top: '5px', boxShadow: '0 0 #4433ff' };
+    } else {
+      style = { ...style, top: '5px', boxShadow: '0 0 #ff0a78' };
+    }
+  }
   return (
     <button
       style={style}
       onClick={onClick}
-      // className={isHover ? 'hover' : ''}
-      // onMouseEnter={setIsHover(true)}
-      // onMouseDown={setIsActive(true)}
+      onMouseEnter={() => setHoverStyle(true)}
+      onMouseDown={() => setActiveStyle(true)}
+      onMouseLeave={() => setHoverStyle(false)}
+      onMouseUp={() => setActiveStyle(false)}
     >
       {children}{' '}
     </button>

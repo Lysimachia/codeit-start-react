@@ -24,7 +24,7 @@ function Board({
       </div>
       <div className='log'>
         <h1>기록 </h1>
-        <p> {log.join(', ')} </p>
+        <p> {log.length === 0 ? <br /> : log.join(', ')} </p>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Board from './Board';
 import Button from './Button';
 import getRandomNumber from './Util';
@@ -7,6 +6,8 @@ import getRandomNumber from './Util';
 function App() {
   const [myLog, setMyLog] = useState<number[]>([]);
   const [otherLog, setOtherLog] = useState<number[]>([]);
+  // const [isHover, setIsHover] = useState<Boolean>(false);
+  // const [isActicve, setIsActicve] = useState<Boolean>(false);
 
   const handlePlay = () => {
     const myNum = getRandomNumber(1, 6);
