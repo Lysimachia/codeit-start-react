@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CSS from 'csstype';
+import './Button.css';
 
 type ButtonProps = {
   children: React.ReactNode;

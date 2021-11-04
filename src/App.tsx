@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Board from './Board';
 import Button from './Button';
 import getRandomNumber from './Util';
+import './App.css';
 
 function App() {
   const [myLog, setMyLog] = useState<number[]>([]);
