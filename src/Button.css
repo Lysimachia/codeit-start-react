@@ -1,0 +1,46 @@
+.baseButtonStyle {
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  font-weight: bold;
+}
+.baseButtonStyle:hover {
+  top: 1px;
+}
+.baseButtonStyle:active {
+  top: 5px;
+}
+
+.blue {
+  box-shadow: 0 5px #43f;
+  background: #3a86ff;
+}
+
+.blue:hover {
+  box-shadow: 0 3px #43f;
+}
+
+.blue:active {
+  box-shadow: 0 0 #43f;
+}
+
+.red {
+  box-shadow: 0 5px #ff0a78;
+  background: #ff6392;
+}
+
+.red:hover {
+  box-shadow: 0 3px #ff0a78;
+}
+
+.red:active {
+  box-shadow: 0 0 #ff0a78;
+}

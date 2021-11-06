@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Board from './Board';
 import Button from './Button';
 import getRandomNumber from './Util';
-import './App.css';
+import Logo from './assets/logo.png';
+
+// TODO: 다크모드 적용하기
+// TODO: Jest- 테스트 적용하기
 
 function App() {
   const [myLog, setMyLog] = useState<number[]>([]);
   const [otherLog, setOtherLog] = useState<number[]>([]);
-  // const [isHover, setIsHover] = useState<Boolean>(false);
-  // const [isActicve, setIsActicve] = useState<Boolean>(false);
 
   const handlePlay = () => {
     const myNum = getRandomNumber(1, 6);
@@ -23,12 +24,16 @@ function App() {
   };
   return (
     <main>
+      <header>
+        <img src={Logo} alt='logo' />
+        <h1>주사위 게임</h1>
+      </header>
       <section className='ButtonAreaOuter'>
         <div className='ButtonAreaInner'>
-          <Button color='blue' onClick={handlePlay}>
+          <Button className='blue' onClick={handlePlay}>
             던지기
           </Button>
-          <Button color='red' onClick={handleReset}>
+          <Button className='red' onClick={handleReset}>
             새로하기
           </Button>
         </div>
