@@ -3,8 +3,6 @@ import Board from './Board';
 import Button from './Button';
 import ToggleSwitch from './ToggleSwitch';
 import getRandomNumber from './Util';
-// import DarkModeIcon from './assets/icon_dark-mode.svg';
-// import LightModeIcon from 'srcassetsicon_dark-mode.svg';
 import Logo from './assets/logo.png';
 import './App.css';
 
@@ -30,13 +28,9 @@ function App() {
   return (
     <main className={isDarkMode ? 'dark' : ''}>
       <div>
-        <span className='icon'>
-          <img src={require('./assets/icon_light-mode.svg').default} alt='light mode' />
-        </span>
+        <span className='icon'> light </span>
         <ToggleSwitch onClick={() => setDarkMode(!isDarkMode)} />
-        <span className='icon'>
-          <img src={require('./assets/icon_dark-mode.svg').default} alt='dark mode' />
-        </span>
+        <span className='icon'> dark </span>
       </div>
       <header>
         <img src={Logo} alt='logo' width='200' />

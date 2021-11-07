@@ -1,14 +1,17 @@
 main {
-  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   text-align: center;
   padding: 2rem 0;
   background: rgb(238,174,202);
   background: linear-gradient(260deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-  transition: background-image 1s;
 }
-header,.BoardArea  {
+
+header, .BoardArea  {
   padding: 1.5rem 0;
 }
 .BoardArea {
@@ -17,13 +20,12 @@ header,.BoardArea  {
   flex-wrap: wrap;
 }
 
-.dark{
+.dark {
   background: #2A2C3D;
   color: white;
-  transition: background-color 1s;
+  transition: background-color 0.7s ease-out;
 }
 
-.dark .BoardArea .board{
-  background-color: #3b3d4c;
-  border: none;
+.dark textarea {
+  color: white;
 }
