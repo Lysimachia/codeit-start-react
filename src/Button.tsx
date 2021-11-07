@@ -8,11 +8,7 @@ type ButtonProps = {
 };
 function Button({ className, children, onClick }: ButtonProps): JSX.Element {
   return (
-    <button
-      type='button'
-      className={`baseButtonStyle ${className}`}
-      onClick={onClick}
-    >
+    <button type='button' className={`btn btn-${className}`} onClick={onClick}>
       {children}
     </button>
   );

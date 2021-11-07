@@ -1,0 +1,9 @@
+main {
+  width: 100vw;
+  text-align: center;
+}
+.BoardArea {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

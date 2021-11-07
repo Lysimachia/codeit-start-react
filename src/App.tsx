@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Board from './Board';
 import Button from './Button';
+import ToggleSwitch from './ToggleSwitch';
 import getRandomNumber from './Util';
 import Logo from './assets/logo.png';
+import './App.css';
 
 // TODO: 다크모드 적용하기
 // TODO: Jest- 테스트 적용하기
@@ -24,8 +26,9 @@ function App() {
   };
   return (
     <main>
+      <ToggleSwitch />
       <header>
-        <img src={Logo} alt='logo' />
+        <img src={Logo} alt='logo' width='200' />
         <h1>주사위 게임</h1>
       </header>
       <section className='ButtonAreaOuter'>

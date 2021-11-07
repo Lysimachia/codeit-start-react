@@ -7,6 +7,7 @@ function Dice({ color, num }: { color: string; num: number }) {
       // eslint-disable-next-line import/no-dynamic-require
       src={require(`./assets/dice-${color}-${num}.svg`).default}
       alt={`dice-${color}-${num}`}
+      width='100px'
     />
   );
 }

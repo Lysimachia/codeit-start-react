@@ -14,17 +14,17 @@ function Board({
   const currentNum = log[log.length - 1] || 1;
   const totalScore = log.reduce((prev, curr) => prev + curr, 0);
   return (
-    <div className='Board'>
-      <div className='Dice'>
-        <h1>{name}</h1>
+    <div className='board'>
+      <div className='dice'>
+        <h2>{name}</h2>
         <Dice color={color} num={currentNum} />
       </div>
       <div className='score'>
-        <h1>총점 </h1>
+        <h2>총점</h2>
         <p>{totalScore}</p>
       </div>
       <div className='log'>
-        <h1>기록 </h1>
+        <h2>기록</h2>
         <textarea value={log.join(', ')} rows={5} />
       </div>
     </div>
