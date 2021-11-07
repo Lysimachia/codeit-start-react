@@ -14,7 +14,7 @@ function Board({
   const currentNum = log[log.length - 1] || 1;
   const totalScore = log.reduce((prev, curr) => prev + curr, 0);
   return (
-    <div className='board'>
+    <div className={`board board-${color}`}>
       <div className='dice'>
         <h2>{name}</h2>
         <Dice color={color} num={currentNum} />

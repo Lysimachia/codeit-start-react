@@ -1,9 +1,29 @@
 main {
+  margin: 0;
   width: 100vw;
+  height: 100vh;
   text-align: center;
+  padding: 2rem 0;
+  background: rgb(238,174,202);
+  background: linear-gradient(260deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  transition: background-image 1s;
+}
+header,.BoardArea  {
+  padding: 1.5rem 0;
 }
 .BoardArea {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.dark{
+  background: #2A2C3D;
+  color: white;
+  transition: background-color 1s;
+}
+
+.dark .BoardArea .board{
+  background-color: #3b3d4c;
+  border: none;
 }

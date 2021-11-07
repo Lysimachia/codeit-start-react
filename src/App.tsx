@@ -3,15 +3,17 @@ import Board from './Board';
 import Button from './Button';
 import ToggleSwitch from './ToggleSwitch';
 import getRandomNumber from './Util';
+// import DarkModeIcon from './assets/icon_dark-mode.svg';
+// import LightModeIcon from 'srcassetsicon_dark-mode.svg';
 import Logo from './assets/logo.png';
 import './App.css';
 
-// TODO: 다크모드 적용하기
 // TODO: Jest- 테스트 적용하기
 
 function App() {
   const [myLog, setMyLog] = useState<number[]>([]);
   const [otherLog, setOtherLog] = useState<number[]>([]);
+  const [isDarkMode, setDarkMode] = useState<boolean>(false);
 
   const handlePlay = () => {
     const myNum = getRandomNumber(1, 6);
@@ -24,9 +26,18 @@ function App() {
     setMyLog([]);
     setOtherLog([]);
   };
+
   return (
-    <main>
-      <ToggleSwitch />
+    <main className={isDarkMode ? 'dark' : ''}>
+      <div>
+        <span className='icon'>
+          <img src={require('./assets/icon_light-mode.svg').default} alt='light mode' />
+        </span>
+        <ToggleSwitch onClick={() => setDarkMode(!isDarkMode)} />
+        <span className='icon'>
+          <img src={require('./assets/icon_dark-mode.svg').default} alt='dark mode' />
+        </span>
+      </div>
       <header>
         <img src={Logo} alt='logo' width='200' />
         <h1>주사위 게임</h1>

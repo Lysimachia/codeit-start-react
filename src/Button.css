@@ -4,29 +4,29 @@
   transition: all 0.3s ease;
   outline: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.6rem;
   cursor: pointer;
-  padding: 5px 10px;
-  min-width: 130px;
-  height: 40px;
+  padding: 0.5rem 1rem;
+  min-width: 7rem;
+  height: 2.5rem;
   color: #fff;
   font-weight: bold;
   margin: 0.5rem;
 }
 .btn:hover {
-  top: 1px;
+  top: 0.1rem;
 }
 .btn:active {
-  top: 5px;
+  top: 0.5rem;
 }
 
 .btn-blue {
-  box-shadow: 0 5px #43f;
+  box-shadow: 0 0.5rem #43f;
   background: #3a86ff;
 }
 
 .btn-blue:hover {
-  box-shadow: 0 3px #43f;
+  box-shadow: 0 0.4rem #43f;
 }
 
 .btn-blue:active {
@@ -34,12 +34,12 @@
 }
 
 .btn-red {
-  box-shadow: 0 5px #ff0a78;
+  box-shadow: 0 0.5rem #ff0a78;
   background: #ff6392;
 }
 
 .btn-red:hover {
-  box-shadow: 0 3px #ff0a78;
+  box-shadow: 0 0.4rem #ff0a78;
 }
 
 .btn-red:active {
