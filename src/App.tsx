@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import Board from './Board';
 import Button from './Button';
+import ToggleSwitch from './ToggleSwitch';
 import getRandomNumber from './Util';
+import Logo from './assets/logo.png';
 import './App.css';
+
+// TODO: Jest- 테스트 적용하기
 
 function App() {
   const [myLog, setMyLog] = useState<number[]>([]);
   const [otherLog, setOtherLog] = useState<number[]>([]);
-  // const [isHover, setIsHover] = useState<Boolean>(false);
-  // const [isActicve, setIsActicve] = useState<Boolean>(false);
+  const [isDarkMode, setDarkMode] = useState<boolean>(false);
 
   const handlePlay = () => {
     const myNum = getRandomNumber(1, 6);
@@ -21,14 +24,24 @@ function App() {
     setMyLog([]);
     setOtherLog([]);
   };
+
   return (
-    <main>
+    <main className={isDarkMode ? 'dark' : ''}>
+      <div className='darkModeArea'>
+        <span className='icon'> light </span>
+        <ToggleSwitch onClick={() => setDarkMode(!isDarkMode)} />
+        <span className='icon'> dark </span>
+      </div>
+      <header>
+        <img src={Logo} alt='logo' width='200' />
+        <h1>주사위 게임</h1>
+      </header>
       <section className='ButtonAreaOuter'>
         <div className='ButtonAreaInner'>
-          <Button color='blue' onClick={handlePlay}>
+          <Button className='blue' onClick={handlePlay}>
             던지기
           </Button>
-          <Button color='red' onClick={handleReset}>
+          <Button className='red' onClick={handleReset}>
             새로하기
           </Button>
         </div>
