@@ -26,7 +26,7 @@ function App() {
   };
 
   return (
-    <main className={isDarkMode ? 'dark' : ''}>
+    <main className={isDarkMode ? 'dark' : 'light'}>
       <div className='darkModeArea'>
         <span className='icon'> light </span>
         <ToggleSwitch onClick={() => setDarkMode(!isDarkMode)} />
