@@ -29,7 +29,10 @@ function App() {
     <main className={isDarkMode ? 'dark' : 'light'}>
       <div className='darkModeArea'>
         <span className='icon'> light </span>
-        <ToggleSwitch onClick={() => setDarkMode(!isDarkMode)} />
+        <ToggleSwitch
+          onClick={() => setDarkMode(!isDarkMode)}
+          onTouchStart={() => setDarkMode(!isDarkMode)}
+        />
         <span className='icon'> dark </span>
       </div>
       <header>
