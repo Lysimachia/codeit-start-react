@@ -1,14 +1,38 @@
 main {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100vw;
   text-align: center;
-  background: rgb(238,174,202);
-  background: linear-gradient(260deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: linear-gradient(
+    260deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
+
+.light::before {
+  top: 0;
+  left: 0;
+  position: absolute;
+  content: '';
+  background: #2a2c3d;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+  animation: fadeOut 0.7s forwards ease-in-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    z-index: inherit;
+  }
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
 .darkModeArea {
   padding: 1rem;
 }
@@ -16,7 +40,8 @@ main {
   font-weight: 900;
   padding: 0 0.5rem;
 }
-header, .BoardArea  {
+header,
+.BoardArea {
   padding: 1rem 0;
 }
 .BoardArea {
@@ -24,9 +49,8 @@ header, .BoardArea  {
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .dark {
-  background: #2A2C3D;
+  background: #2a2c3d;
   color: white;
   transition: background-color 0.7s ease-out;
 }
