@@ -47,7 +47,7 @@ header,
 .BoardArea {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .dark {
   background: #2a2c3d;
@@ -57,4 +57,10 @@ header,
 
 .dark textarea {
   color: white;
+}
+@media (max-width: 480px) { 
+  .board {
+    padding: 5vw;
+    margin: 2vw;
+  }
 }
