@@ -12,7 +12,7 @@ import diceRed04 from './assets/dice-red-4.svg';
 import diceRed05 from './assets/dice-red-5.svg';
 import diceRed06 from './assets/dice-red-6.svg';
 
-const DICE_IMAGES: Record<string, any> = {
+const DICE_IMAGES: Record<DiceColor, Array<string>> = {
   blue: [
     diceBlue01,
     diceBlue02,
@@ -23,8 +23,12 @@ const DICE_IMAGES: Record<string, any> = {
   ],
   red: [diceRed01, diceRed02, diceRed03, diceRed04, diceRed05, diceRed06],
 };
+interface DiceProps {
+  color: DiceColor;
+  num: DiceNum;
+};
 
-function Dice({ color, num }: { color: string; num: number }) {
+function Dice({ color, num }: DiceProps) {
   const src = DICE_IMAGES[color][num - 1];
   return <img src={src} alt={`Dice-${color}-${num}`} width='100px' />;
 }

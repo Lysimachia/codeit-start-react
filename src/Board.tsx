@@ -8,8 +8,8 @@ function Board({
   log,
 }: {
   name: string;
-  color: string;
-  log: Array<number>;
+  color: DiceColor;
+  log: Array<DiceNum>;
 }) {
   const currentNum = log[log.length - 1] || 1;
   const totalScore = log.reduce((prev, curr) => prev + curr, 0);

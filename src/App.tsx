@@ -6,18 +6,25 @@ import getRandomNumber from './Util';
 import Logo from './assets/logo.png';
 import './App.css';
 
-// TODO: Jest- 테스트 적용하기
+export const addItem = (newItem) => (old) => [...old, newItem];
+
 
 function App() {
-  const [myLog, setMyLog] = useState<number[]>([]);
-  const [otherLog, setOtherLog] = useState<number[]>([]);
-  const [isDarkMode, setDarkMode] = useState<boolean>(false);
+  const [myLog, setMyLog] = useState<DiceNum[]>([]);
+  const [otherLog, setOtherLog] = useState<DiceNum[]>([]);
+  const [isDarkMode, setDarkMode] = useState(false);
+  const [isFirst, setIsFirstRendering] = useState(true)
+
+  const handleMode = () => {
+     setDarkMode(!isDarkMode);
+     setIsFirstRendering(false);
+  }
 
   const handlePlay = () => {
-    const myNum = getRandomNumber(1, 6);
+    const myNum    = getRandomNumber(1, 6);
     const otherNum = getRandomNumber(1, 6);
-    setMyLog([...myLog, myNum]);
-    setOtherLog([...otherLog, otherNum]);
+    setMyLog(addItem(myNum));
+    setOtherLog(addItem(otherNum));
   };
 
   const handleReset = () => {
@@ -25,13 +32,15 @@ function App() {
     setOtherLog([]);
   };
 
+  const getClassName = (isDarkMode ? 'dark' : 'light') + ' ' + (isFirst ? 'first' : '')
+  
   return (
-    <main className={isDarkMode ? 'dark' : 'light'}>
+    <main className={className}>
       <div className='darkModeArea'>
         <span className='icon'> light </span>
         <ToggleSwitch
-          onClick={() => setDarkMode(!isDarkMode)}
-          onTouchStart={() => setDarkMode(!isDarkMode)}
+          onClick={() => handleMode()}
+          onTouchStart={() => handleMode()}
         />
         <span className='icon'> dark </span>
       </div>
