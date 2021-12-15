@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Board from './Board';
 import Button from './Button';
 import ToggleSwitch from './ToggleSwitch';
@@ -15,22 +15,22 @@ function App() {
   const [isDarkMode, setDarkMode] = useState(false);
   const [isFirst, setIsFirstRendering] = useState(true)
 
-  const handleMode = () => {
+  const handleMode = useCallback(() => {
      setDarkMode(!isDarkMode);
      setIsFirstRendering(false);
-  }
+  }, [isDarkMode])
 
-  const handlePlay = () => {
+  const handlePlay = useCallback(() => {
     const myNum    = getRandomNumber(1, 6);
     const otherNum = getRandomNumber(1, 6);
     setMyLog(addItem(myNum));
     setOtherLog(addItem(otherNum));
-  };
+  }, [myNum, otherNum]);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setMyLog([]);
     setOtherLog([]);
-  };
+  },[]);
 
   const getClassName = (isDarkMode ? 'dark' : 'light') + ' ' + (isFirst ? 'first' : '')
   
