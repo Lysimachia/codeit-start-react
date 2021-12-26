@@ -25,7 +25,7 @@ function Board({
       </div>
       <div className='log'>
         <h2>기록</h2>
-        <textarea value={log.join(', ')} rows={3} cols={14} />
+        <textarea defaultValue={log.join(', ')} rows={3} cols={14} />
       </div>
     </div>
   );

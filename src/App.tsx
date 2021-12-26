@@ -6,8 +6,7 @@ import getRandomNumber from './Util';
 import Logo from './assets/logo.png';
 import './App.css';
 
-export const addItem = (newItem) => (old) => [...old, newItem];
-
+export const addScore = (newScore: DiceNum) => (old: DiceNum[]) => [...old, newScore];
 
 function App() {
   const [myLog, setMyLog] = useState<DiceNum[]>([]);
@@ -23,19 +22,18 @@ function App() {
   const handlePlay = useCallback(() => {
     const myNum    = getRandomNumber(1, 6);
     const otherNum = getRandomNumber(1, 6);
-    setMyLog(addItem(myNum));
-    setOtherLog(addItem(otherNum));
-  }, [myNum, otherNum]);
+    setMyLog(addScore(myNum as DiceNum));
+    setOtherLog(addScore(otherNum as DiceNum));
+  }, []);
 
   const handleReset = useCallback(() => {
     setMyLog([]);
     setOtherLog([]);
   },[]);
 
-  const getClassName = (isDarkMode ? 'dark' : 'light') + ' ' + (isFirst ? 'first' : '')
-  
+  const getClassName = [isDarkMode ? 'dark' : 'light', isFirst ? 'first' : null];
   return (
-    <main className={className}>
+    <main className={getClassName.join('')}>
       <div className='darkModeArea'>
         <span className='icon'> light </span>
         <ToggleSwitch
