@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import classNames from 'classnames';
 import Board from './Board';
 import Button from './Button';
 import ToggleSwitch from './ToggleSwitch';
@@ -13,10 +14,10 @@ function App() {
   const [otherLog, setOtherLog] = useState<DiceNum[]>([]);
   const [isDarkMode, setDarkMode] = useState(false);
   const [isFirst, setIsFirstRendering] = useState(true)
-
+  
   const handleMode = useCallback(() => {
-     setDarkMode(!isDarkMode);
-     setIsFirstRendering(false);
+    setDarkMode(!isDarkMode);
+    setIsFirstRendering(false);
   }, [isDarkMode])
 
   const handlePlay = useCallback(() => {
@@ -31,9 +32,11 @@ function App() {
     setOtherLog([]);
   },[]);
 
-  const getClassName = [isDarkMode ? 'dark' : 'light', isFirst ? 'first' : null];
   return (
-    <main className={getClassName.join('')}>
+    <main className={ classNames([
+      isDarkMode ? 'dark': 'light',
+      isFirst ? 'first': null
+    ]) }>
       <div className='darkModeArea'>
         <span className='icon'> light </span>
         <ToggleSwitch
